@@ -57,9 +57,61 @@
   
 
 
+## Steps followed for running uninstallation script:
+1. Create the excel sheet using the below templet
+   Uninstallation template in the directory
+2. Repeat the installation steps 2-5.</br>
+ Note: Run uninstallation setup script instead of installation setup script.
+3. Run the main script. </br>
+    Command: </br>
+    <Script location> python3 OneAgentUninstallationLinux.py</br>
+    Script will automatically create the log file if is not exist, append to the previous file if the log file already exists. Check log files for installation details. (OneAgentUninstallation.log)</br>
+    Look into logs for details on uninstallation/Errors during uninstallation
+    
+   
+   
+## Sequence of steps:
+
+
+![image](https://user-images.githubusercontent.com/95140620/172545256-041d696c-f3a5-42cb-baea-ece700759d76.png)
+
+### To execute the script on linux server:
+
+* Python should be installed (preferred version >=3.7)
+	Guide: https://docs.python-guide.org/starting/install3/linux/ </br>
+	Paramiko, openpyxl and cryptography modules</br>
+* If required modules are not present, try installing them using pip</br>
+	Help: https://docs.python.org/3/installing/index.html </br>
+	Ex: python3 -m pip3 install [modulename] </br>
+	(or)</br>
+	Run this command:</br>
+	Requirement.txt file is in the folder.
+	<Folder location> pip install -r requirements.txt></br>
+
+	Help: https://packaging.python.org/tutorials/installing-packages/ </br>
+* Require sudo/root privilege.
+* Open required ports
+* Oneagent binary
+### Steps followed for installation:
+* Transfer the file to linux machine or crate respective files mentioned in steps followed for installation on windows machine.
+* Required modules and python interpreter should be present on linux VM If not make sure install them
+* Place one agent binary in the respective folders
+* Follow the steps 1-5 which are mentioned above (windws)</br>
+   In OneAgentInstallationLinux.py and OneAgentUninstallationLinux.py which is used for windows make the following change</br>
+	Edit this part of the code
+	![image](https://user-images.githubusercontent.com/95140620/172545986-3ee2f691-eaec-4277-b027-77f4662356ce.png)</br>
+	Replace it with </br>
+	response = os.system("ping -c 4 " + host)</br>
+*  To run the script,s use the command
+ python3 OneAgentInstallationLinux.py</br>
+*  Use the same excel templets which are used for windows.
+*  Check successful installation list, unsuccessful installation, and log file for more details about the installation of oneAgent.
 
 
 
 
-  
+
+
+	
+
   
